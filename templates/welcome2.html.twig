@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Test{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/bootstrap/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/fontawesome/css/all.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/themify-icons/themify-icons.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/flat-icon/flaticon.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/nice-select/nice-select.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/Magnific-Popup/magnific-popup.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/OwlCarousel/owl.theme.default.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/OwlCarousel/owl.carousel.min.css') }}" />
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</head>
+<body>
+<header class="header_area sticky-header">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light main_box">
+            <div class="container">
+                <br>&nbsp;<br>
+            </div>
+        </nav>
+    </div>
+</header>
+<main class="site-main">
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="hero-banner__img">
+                        <img class="img-fluid" src="img/banner/hero-banner.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 pl-xl-4">
+                    <div class="hero-banner__content">
+                        {% block body %}
+                            {% if name is defined %}
+                                <pre>{{ name|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+                            {% endif %}
+
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+</footer>
+</body>
+</html>
